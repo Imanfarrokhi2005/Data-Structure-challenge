@@ -138,8 +138,8 @@ for (const [team, odd] of Object.entries(game.odds)) {
 
 // BONUS.
 const scorers = {};
-
-for (const playerScored of game.scored) {
-  scorers[playerScored] = (scorers[playerScored] || 0) + 1;
+for (const player of game.scored) {
+  scorers[player] ? scorers[player]++ : (scorers[player] = 1);
 }
+
 console.log(scorers);
