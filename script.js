@@ -173,3 +173,23 @@ const gameEvents = new Map([
   [80, "⚽️ GOAL"],
   [92, "🔶 Yellow card"],
 ]);
+
+// 1.
+const events = [...new Set(gameEvents.values())];
+console.log(events);
+
+// 2.
+gameEvents.delete(64);
+console.log(gameEvents);
+
+// 3.
+const time = [...gameEvents.keys()].at(-1);
+console.log(
+  `An event happened, on average, every ${time / gameEvents.size} minutes`,
+);
+
+// 4.
+for (const [eventTime, eventLog] of gameEvents) {
+  const logMessage = eventTime <= 45 ? "[FIRST HALF] " : "[SECOND HALF] ";
+  console.log(`${logMessage}${eventTime}: ${eventLog}`);
+}
