@@ -118,3 +118,28 @@ BONUS: Create an object called 'scorers' which contains the names of the players
 
 GOOD LUCK 😀
 */
+
+// 1.
+for (const [i, player] of game.scored.entries())
+  console.log(`Goal ${i + 1}: ${player}`);
+
+// 2.
+const odds = Object.values(game.odds);
+let average = 0;
+for (const odd of odds) average += odd;
+average /= odds.length;
+console.log(average);
+
+// 3.
+for (const [team, odd] of Object.entries(game.odds)) {
+  const oddMessage = team ? `victory ${game[team]}: ${odd}` : `draw: ${odd}`;
+  console.log(`Odd of ${oddMessage}`);
+}
+
+// BONUS.
+const scorers = {};
+
+for (const playerScored of game.scored) {
+  scorers[playerScored] = (scorers[playerScored] || 0) + 1;
+}
+console.log(scorers);
