@@ -18,85 +18,85 @@ TEST DATA FOR 6: Use players 'Davies', 'Muller', 'Lewandowski' and 'Kimmich'. Th
 GOOD LUCK 😀
 */
 
-const game = {
-  team1: "Bayern Munich",
-  team2: "Borrussia Dortmund",
-  players: [
-    [
-      "Neuer",
-      "Pavard",
-      "Martinez",
-      "Alaba",
-      "Davies",
-      "Kimmich",
-      "Goretzka",
-      "Coman",
-      "Muller",
-      "Gnarby",
-      "Lewandowski",
-    ],
-    [
-      "Burki",
-      "Schulz",
-      "Hummels",
-      "Akanji",
-      "Hakimi",
-      "Weigl",
-      "Witsel",
-      "Hazard",
-      "Brandt",
-      "Sancho",
-      "Gotze",
-    ],
-  ],
-  score: "4:0",
-  scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
-  date: "Nov 9th, 2037",
-  odds: {
-    team1: 1.33,
-    x: 3.25,
-    team2: 6.5,
-  },
-};
+// const game = {
+//   team1: "Bayern Munich",
+//   team2: "Borrussia Dortmund",
+//   players: [
+//     [
+//       "Neuer",
+//       "Pavard",
+//       "Martinez",
+//       "Alaba",
+//       "Davies",
+//       "Kimmich",
+//       "Goretzka",
+//       "Coman",
+//       "Muller",
+//       "Gnarby",
+//       "Lewandowski",
+//     ],
+//     [
+//       "Burki",
+//       "Schulz",
+//       "Hummels",
+//       "Akanji",
+//       "Hakimi",
+//       "Weigl",
+//       "Witsel",
+//       "Hazard",
+//       "Brandt",
+//       "Sancho",
+//       "Gotze",
+//     ],
+//   ],
+//   score: "4:0",
+//   scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
+//   date: "Nov 9th, 2037",
+//   odds: {
+//     team1: 1.33,
+//     x: 3.25,
+//     team2: 6.5,
+//   },
+// };
 
-// SOLUTIONS...
+// // SOLUTIONS...
 
-// 1.
-const [players1, players2] = game.players;
-console.log(players1, players2);
+// // 1.
+// const [players1, players2] = game.players;
+// console.log(players1, players2);
 
-// 2.
-const [gk, ...fieldPlayers] = players1;
-console.log(gk, fieldPlayers);
+// // 2.
+// const [gk, ...fieldPlayers] = players1;
+// console.log(gk, fieldPlayers);
 
-// 3.
-const allPlayers = [...players1, ...players2];
-console.log(allPlayers);
+// // 3.
+// const allPlayers = [...players1, ...players2];
+// console.log(allPlayers);
 
-// 4.
-const players1Final = [...players1, "Thiago", "Coutinho", "Perisic"];
-console.log(players1Final);
+// // 4.
+// const players1Final = [...players1, "Thiago", "Coutinho", "Perisic"];
+// console.log(players1Final);
 
-// 5.
-const {
-  odds: { team1, x, team2 },
-} = game;
-console.log(team1, x, team2);
+// // 5.
+// const {
+//   odds: { team1, x, team2 },
+// } = game;
+// console.log(team1, x, team2);
 
-// 6.
-const printGoals = function (...playerNames) {
-  for (let i = 0; i < playerNames.length; i++)
-    console.log(`${playerNames[i]} scored!`);
-  console.log(`${playerNames.length} goals were scored`);
-};
-printGoals(...game.scored);
+// // 6.
+// const printGoals = function (...playerNames) {
+//   for (let i = 0; i < playerNames.length; i++)
+//     console.log(`${playerNames[i]} scored!`);
+//   console.log(`${playerNames.length} goals were scored`);
+// };
+// printGoals(...game.scored);
 
-// 7.
-team1 < team2 && console.log("Team 1 is more likely to win");
-team2 < team1 && console.log("Team 2 is more likely to win");
-x < team1 &&
-  x < team2 &&
-  console.log("It's more likely that the game ends in Draw");
+// // 7.
+// team1 < team2 && console.log("Team 1 is more likely to win");
+// team2 < team1 && console.log("Team 2 is more likely to win");
+// x < team1 &&
+//   x < team2 &&
+//   console.log("It's more likely that the game ends in Draw");
 
 ////////////////////////////////////////
 
@@ -121,30 +121,30 @@ BONUS: Create an object called 'scorers' which contains the names of the players
 GOOD LUCK 😀
 */
 
-// 1.
-for (const [i, player] of game.scored.entries())
-  console.log(`Goal ${i + 1}: ${player}`);
+// // 1.
+// for (const [i, player] of game.scored.entries())
+//   console.log(`Goal ${i + 1}: ${player}`);
 
-// 2.
-const odds = Object.values(game.odds);
-let average = 0;
-for (const odd of odds) average += odd;
-average /= odds.length;
-console.log(average);
+// // 2.
+// const odds = Object.values(game.odds);
+// let average = 0;
+// for (const odd of odds) average += odd;
+// average /= odds.length;
+// console.log(average);
 
-// 3.
-for (const [team, odd] of Object.entries(game.odds)) {
-  const oddMessage = team ? `victory ${game[team]}: ${odd}` : `draw: ${odd}`;
-  console.log(`Odd of ${oddMessage}`);
-}
+// // 3.
+// for (const [team, odd] of Object.entries(game.odds)) {
+//   const oddMessage = team ? `victory ${game[team]}: ${odd}` : `draw: ${odd}`;
+//   console.log(`Odd of ${oddMessage}`);
+// }
 
-// BONUS.
-const scorers = {};
-for (const player of game.scored) {
-  scorers[player] ? scorers[player]++ : (scorers[player] = 1);
-}
+// // BONUS.
+// const scorers = {};
+// for (const player of game.scored) {
+//   scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+// }
 
-console.log(scorers);
+// console.log(scorers);
 
 ////////////////////////////////////////
 
@@ -160,39 +160,39 @@ Let's continue with our football betting app! This time, we have a map with a lo
 GOOD LUCK 😀
 */
 
-const gameEvents = new Map([
-  [17, "⚽️ GOAL"],
-  [36, "🔁 Substitution"],
-  [47, "⚽️ GOAL"],
-  [61, "🔁 Substitution"],
-  [64, "🔶 Yellow card"],
-  [69, "🔴 Red card"],
-  [70, "🔁 Substitution"],
-  [72, "🔁 Substitution"],
-  [76, "⚽️ GOAL"],
-  [80, "⚽️ GOAL"],
-  [92, "🔶 Yellow card"],
-]);
+// const gameEvents = new Map([
+//   [17, "⚽️ GOAL"],
+//   [36, "🔁 Substitution"],
+//   [47, "⚽️ GOAL"],
+//   [61, "🔁 Substitution"],
+//   [64, "🔶 Yellow card"],
+//   [69, "🔴 Red card"],
+//   [70, "🔁 Substitution"],
+//   [72, "🔁 Substitution"],
+//   [76, "⚽️ GOAL"],
+//   [80, "⚽️ GOAL"],
+//   [92, "🔶 Yellow card"],
+// ]);
 
-// 1.
-const events = [...new Set(gameEvents.values())];
-console.log(events);
+// // 1.
+// const events = [...new Set(gameEvents.values())];
+// console.log(events);
 
-// 2.
-gameEvents.delete(64);
-console.log(gameEvents);
+// // 2.
+// gameEvents.delete(64);
+// console.log(gameEvents);
 
-// 3.
-const time = [...gameEvents.keys()].at(-1);
-console.log(
-  `An event happened, on average, every ${time / gameEvents.size} minutes`,
-);
+// // 3.
+// const time = [...gameEvents.keys()].at(-1);
+// console.log(
+//   `An event happened, on average, every ${time / gameEvents.size} minutes`,
+// );
 
-// 4.
-for (const [eventTime, eventLog] of gameEvents) {
-  const logMessage = eventTime <= 45 ? "[FIRST HALF] " : "[SECOND HALF] ";
-  console.log(`${logMessage}${eventTime}: ${eventLog}`);
-}
+// // 4.
+// for (const [eventTime, eventLog] of gameEvents) {
+//   const logMessage = eventTime <= 45 ? "[FIRST HALF] " : "[SECOND HALF] ";
+//   console.log(`${logMessage}${eventTime}: ${eventLog}`);
+// }
 
 ////////////////////////////////////////
 /////////// STRING CHALLENGES ///////////
@@ -226,20 +226,62 @@ Afterwards, test with your own test data!
 GOOD LUCK 😀
 */
 
-document.body.append(document.createElement("textarea"));
-document.body.append(document.createElement("button"));
+// document.body.append(document.createElement("textarea"));
+// document.body.append(document.createElement("button"));
 
-document.querySelector("button").addEventListener("click", function () {
-  const text = document.querySelector("textarea").value;
-  const rows = text.split("\n");
+// document.querySelector("button").addEventListener("click", function () {
+//   const text = document.querySelector("textarea").value;
+//   const rows = text.split("\n");
 
-  for (const [i, row] of rows.entries()) {
-    const [first, second] = row.toLowerCase().trim().split("_");
+//   for (const [i, row] of rows.entries()) {
+//     const [first, second] = row.toLowerCase().trim().split("_");
 
-    const output = `${first}${second.replace(
-      second[0],
-      second[0].toUpperCase(),
-    )}`;
-    console.log(`${output.padEnd(20)}${"✅".repeat(i + 1)}`);
-  }
-});
+//     const output = `${first}${second.replace(
+//       second[0],
+//       second[0].toUpperCase(),
+//     )}`;
+//     console.log(`${output.padEnd(20)}${"✅".repeat(i + 1)}`);
+//   }
+// });
+
+////////////////////////////////////////
+/////////// FUNCTION CHALLENGES ///////////
+
+/* 
+Let's build a simple poll app!
+
+A poll has a question, an array of options from which people can choose, and an array with the number of replies for each option. This data is stored in the starter object below.
+
+Here are your tasks:
+
+1. Create a method called 'registerNewAnswer' on the 'poll' object. The method does 2 things:
+  1.1. Display a prompt window for the user to input the number of the selected option. The prompt should look like this:
+        What is your favourite programming language?
+        0: JavaScript
+        1: Python
+        2: Rust
+        3: C++
+        (Write option number)
+  
+  1.2. Based on the input number, update the answers array. For example, if the option is 3, increase the value AT POSITION 3 of the array by 1. Make sure to check if the input is a number and if the number makes sense (e.g answer 52 wouldn't make sense, right?)
+2. Call this method whenever the user clicks the "Answer poll" button.
+3. Create a method 'displayResults' which displays the poll results. The method takes a string as an input (called 'type'), which can be either 'string' or 'array'. If type is 'array', simply display the results array as it is, using console.log(). This should be the default option. If type is 'string', display a string like "Poll results are 13, 2, 4, 1". 
+4. Run the 'displayResults' method at the end of each 'registerNewAnswer' method call.
+
+HINT: Use many of the tools you learned about in this and the last section 😉
+
+BONUS: Use the 'displayResults' method to display the 2 arrays in the test data. Use both the 'array' and the 'string' option. Do NOT put the arrays in the poll object! So what shoud the this keyword look like in this situation?
+
+BONUS TEST DATA 1: [5, 2, 3]
+BONUS TEST DATA 2: [1, 5, 3, 9, 6, 1]
+
+GOOD LUCK 😀
+*/
+
+const poll = {
+  question: "what's your favourite programming language?",
+  options: ["0: JavaScript", "1: Python", "2: Rust", "3: C++"],
+
+  // This generates [0, 0, 0, 0]. More in the next section
+  answers: new Array(4).fill(0),
+};
